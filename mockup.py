@@ -1,12 +1,14 @@
 import gradio as gr
 
-def greet(name, intensity):
-    return "Hello, " + name + "!"* int(intensity)
+# A placeholder function to return a fixed output
+def mock_up(prompt, temperature, maximum_length, top_p):
+    return "Hello, world!"
+
 
 demo = gr.Interface(
-    fn=greet,
-    inputs = ["text", "slider"],
-    outputs = ["text"],
+    fn=mock_up,
+    inputs=["text", "slider","slider","slider"],
+    outputs=["text"],
 )
 
-demo.launch()
+demo.launch(share=True)
