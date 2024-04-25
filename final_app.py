@@ -61,8 +61,15 @@ demo = gr.Interface(
                       info="Sets the upper limit on the text length, defining how many words the model will generate before stopping. "),
             gr.Slider(label="Top_p", value=1, minimum=0, maximum=1,
                       info="Filters the model’s choices to a set of high-probability options, "
-                           "balancing between creativity and coherence in the text output.")],
-    outputs=[gr.Textbox(label="Output", value="Hello, world!")],
+                           "balancing between creativity and coherence in the text output."),
+            gr.Slider(label="Number of beams", value=3, minimum=1, maximum=5,
+                      info="Controls the number of alternative paths considered in beam search, affecting the diversity of the generated text."),
+            gr.Textbox(label="Force Word", value="", placeholder="Optional word to include in text")
+
+            ],
+            outputs=[gr.Textbox(label="Generated Text")],
+            title="Text Generation Demo",
+            description = "Generate text using the GPT-2 model with customizable parameters.",
 )
 
 demo.launch(share=True)
